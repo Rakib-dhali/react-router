@@ -1,18 +1,16 @@
-import { Link } from "react-router"
-import icon from "/icons.svg"
+import { NavLink } from "react-router-dom";
 
-
-const Nav = () => {
+export default function NavBar() {
   return (
-    <div className='flex justify-between'>
-        <img src={icon} alt="" />
-        <ul className="flex gap-10 flex-row">
-           <Link to="/"> <li>home</li></Link>
-           <Link to="/about"> <li>about</li></Link>
-           <Link to="/contact"> <li>contact</li></Link>
-        </ul>
-    </div>
-  )
+    <nav>
+      <NavLink
+        to="/dashboard"
+        className={({ isActive }) =>
+          isActive ? "text-blue-500 font-semibold" : "text-gray-600"
+        }
+      >
+        Dashboard
+      </NavLink>
+    </nav>
+  );
 }
-
-export default Nav
